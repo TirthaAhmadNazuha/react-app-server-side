@@ -17,7 +17,7 @@ app.post('/signup', (req, res) => {
     const users = JSON.parse(fs.readFileSync('users.json', { encoding: 'utf8', flag: 'r' }))
     users.push(req.body)
     fs.writeFileSync('users.json', JSON.stringify(users))
-    res.redirect('/')
+    res.send(JSON.stringify(req.body))
 
 })
 app.post('/login', (req, res) => {
